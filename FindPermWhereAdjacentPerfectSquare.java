@@ -6,7 +6,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class FindPermWhereAdjacentPerfectSquare {
 	static AtomicInteger found = new AtomicInteger(0);
 	public static void main (String[] args) throws java.lang.Exception {
-		System.out.println("Trying to find all possible permutation of numbers such that every circularly adjacent pair of numbers is a perfect square. \n");
+		System.out.println("Trying to find all possible permutation of numbers ranging from 1 to 'n', such that \n1> every circularly adjacent pair of numbers is a perfect square and \n2> every number appears only once. \n");
 		// oneOfTheValidAnswers: [17, 19, 30, 6, 3, 13, 12, 24, 25, 11, 5, 31, 18, 7, 29, 20, 16, 9, 27, 22, 14, 2, 23, 26, 10, 15, 1, 8, 28, 21, 4, 32]
 		
 		Scanner sc = new Scanner(System.in);
