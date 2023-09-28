@@ -1,12 +1,10 @@
-import java.util.*;
-import java.lang.*;
-import java.io.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class FindPermWhereAdjacentPerfectSquare {
 	public static void main (String[] args) throws java.lang.Exception {
 		System.out.println("Trying to find all possible permutation of numbers ranging from 1 to 'n', such that \n1> every circularly adjacent pair of numbers is a perfect square and \n2> every number appears only once. \n");
-		// oneOfTheValidAnswers: [17, 19, 30, 6, 3, 13, 12, 24, 25, 11, 5, 31, 18, 7, 29, 20, 16, 9, 27, 22, 14, 2, 23, 26, 10, 15, 1, 8, 28, 21, 4, 32]
+		// oneOfTheValidAnswers: [17, 19, 30, 6, 3, 13, 12, 24, 25, 11, 5, 31, 18, 7, 29, 20, 16, 9, 27, 22, 14, 2, 23, 26, 10, 15, 1, 8, 28, 21, 4, 32] for n = 32.
 		
 		Scanner sc = new Scanner(System.in);
 		int noOfSolFound = 0;
@@ -28,8 +26,7 @@ public class FindPermWhereAdjacentPerfectSquare {
 			else System.out.println(":( No solution found for " + n + " numbers! Try another number. \n(Hint: Enter a number greater than 31)\n");
 		}
     }
-	private static int permute(int ind, int[] arr)
-	{
+	private static int permute(int ind, int[] arr) {
 		if (ind == arr.length) {
 			if (isPerfectSquare(arr[0] + arr[arr.length - 1])) {
 				System.out.println(Arrays.toString(arr));
@@ -37,9 +34,9 @@ public class FindPermWhereAdjacentPerfectSquare {
 			}
 			return 0;
 		}
+
 		int found = 0;
-		for (int i = ind; i < arr.length; i++)
-		{
+		for (int i = ind; i < arr.length; i++) {
 			swap(arr, i, ind);
 			if (ind == 0 || (ind > 0 && isPerfectSquare(arr[ind] + arr[ind - 1])))
 				found += permute(ind + 1, arr);
@@ -48,8 +45,7 @@ public class FindPermWhereAdjacentPerfectSquare {
 		return found;
 	}
 
-	private static void swap(int[] arr, int i, int j)
-	{
+	private static void swap(int[] arr, int i, int j) {
 		int temp = arr[i] ;
 		arr[i] = arr[j];
 		arr[j] = temp;
