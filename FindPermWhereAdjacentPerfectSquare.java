@@ -14,7 +14,10 @@ public class FindPermWhereAdjacentPerfectSquare {
 		while (noOfSolFound == 0) {
 			System.out.println("Enter the number of numbers to permute: ");
 			int n = sc.nextInt();
-
+			if (n > 40) {
+				System.out.println(":O Range of number might be too big! Try something < 40.\n");
+				continue;
+			}
 			int[] arr = new int[n];
 			for (int i = 1; i <= n; i++)
 				arr[i - 1] = i;
